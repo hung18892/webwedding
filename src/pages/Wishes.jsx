@@ -104,7 +104,7 @@ export default function Wishes() {
                         transition={{ delay: 0.2 }}
                         className="inline-block text-rose-500 font-medium"
                     >
-                        Tụi mình rất mong nhận được sự yêu thương và lời chúc tốt lành từ mọi người ^^ 😊
+                        Tụi mình rất mong nhận được những lời chúc tốt lành từ mọi người ^^
                     </motion.span>
 
                     <motion.h2
