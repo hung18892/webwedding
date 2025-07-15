@@ -45,7 +45,7 @@ export default function Wishes() {
         };
 
         try {
-            await fetch("https://corsproxy.io/?https://script.google.com/macros/s/AKfycbwk8BHdKeIceOm0-e6TC26EKEoKSz2U7taDWvSFl6f2s136ETTYvSIezCIy_YejlMjI/exec", {
+            await fetch("https://corsproxy.io/?https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
