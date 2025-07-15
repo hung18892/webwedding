@@ -23,7 +23,7 @@ export default function Location() {
                         viewport={{ once: true }}
                         className="inline-block text-rose-500 font-medium"
                     >
-                        Lokasi Acara
+                        Địa điểm sự kiện diễn ra
                     </motion.span>
 
                     <motion.h2
@@ -33,7 +33,7 @@ export default function Location() {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-serif text-gray-800"
                     >
-                        Lokasi
+                        Địa điểm
                     </motion.h2>
 
                     {/* Decorative Divider */}
