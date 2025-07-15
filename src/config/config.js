@@ -9,9 +9,8 @@ const config = {
     parentGroom: "Ông, bà: Trần Văn Dũng & Võ Thị Ngần",
     parentBride: "Ông, bà: Ba Thảo & Mẹ Thảo",
     date: "2026-01-20",
-    maps_url: "https://goo.gl/maps/abcdef",
-    maps_embed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0000000000005!2d106.8270733147699!3d-6.175392995514422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4f1b6d7b1e7%3A0x2e69f4f1b6d7b1e7!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1633666820004!5m2!1sid!2sid",
+    maps_url: "https://www.google.com/maps/place/Trung+tâm+hội+nghị+tiệc+cưới+Full+House/@16.4697114,107.5905514,17z",
+    maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.321442252327!2d107.5905514!3d16.4697114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a13cb3f9bcfb%3A0x99aae25688f6df9c!2sTrung%20t%C3%A2m%20h%E1%BB%99i%20ngh%E1%BB%8B%20ti%E1%BB%87c%20c%C6%B0%E1%BB%9Bi%20Full%20House!5e0!3m2!1svi!2s!4v1721025600000!5m2!1svi!2s",
     time: "11:00 AM",
     location: "Nhà hàng tiệc cưới Fullhouse",
     address: "45 Lê Lợi, Phú Hội, Huế, Thành phố Huế",
