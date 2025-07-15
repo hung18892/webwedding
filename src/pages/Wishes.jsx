@@ -25,9 +25,9 @@ export default function Wishes() {
     const [isOpen, setIsOpen] = useState(false);
 
     const options = [
-        { value: 'ATTENDING', label: 'Vâng, tôi sẽ đến!' },
-        { value: 'NOT_ATTENDING', label: 'Không, tôi không thể đến.' },
-        { value: 'MAYBE', label: 'Có thể, tôi sẽ xác nhận sau.' }
+        { value: 'Vâng, tôi sẽ đến!', label: 'Vâng, tôi sẽ đến!' },
+        { value: 'Không, tôi không thể đến.', label: 'Không, tôi không thể đến.' },
+        { value: 'Có thể, tôi sẽ xác nhận sau.', label: 'Có thể, tôi sẽ xác nhận sau.' }
     ];
 
     const [wishes, setWishes] = useState([]);
@@ -45,7 +45,7 @@ export default function Wishes() {
         };
 
         try {
-            await fetch("https://corsproxy.io/?https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -59,7 +59,7 @@ export default function Wishes() {
                     name: guestName,
                     message: newWish,
                     timestamp: new Date().toISOString(),
-                    attending: attendance.toLowerCase()
+                    attending: attendance
                 },
                 ...prev
             ]);
@@ -76,12 +76,12 @@ export default function Wishes() {
     };
 
     const getAttendanceIcon = (status) => {
-        switch (status) {
-            case 'attending':
+        switch (status.toLowerCase()) {
+            case 'vâng, tôi sẽ đến!':
                 return <CheckCircle className="w-4 h-4 text-emerald-500" />;
-            case 'not-attending':
+            case 'không, tôi không thể đến.':
                 return <XCircle className="w-4 h-4 text-rose-500" />;
-            case 'maybe':
+            case 'có thể, tôi sẽ xác nhận sau.':
                 return <HelpCircle className="w-4 h-4 text-amber-500" />;
             default:
                 return null;
@@ -106,7 +106,7 @@ export default function Wishes() {
                     className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-left flex items-center justify-between"
                 >
                     <span className={attendance ? 'text-gray-700' : 'text-gray-400'}>
-                        {attendance ? options.find(opt => opt.value === attendance)?.label : 'Chọn sự hiện diện...'}
+                        {attendance || 'Chọn sự hiện diện...'}
                     </span>
                     <ChevronDown
                         className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''}`}
