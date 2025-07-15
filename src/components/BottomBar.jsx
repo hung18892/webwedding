@@ -11,11 +11,11 @@ import {
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { icon: Home, label: 'Beranda', href: '#home' },
-  { icon: CalendarHeart, label: 'Event', href: '#event' },
-  { icon: MapPin, label: 'Lokasi', href: '#location' },
-  { icon: Gift, label: 'Hadiah', href: '#gifts' },
-  { icon: MessageCircleHeart, label: 'Harapan', href: '#wishes' },
+  { icon: Home, label: 'Tin tức', href: '#home' },
+  { icon: CalendarHeart, label: 'Sự kiện', href: '#event' },
+  { icon: MapPin, label: 'Địa điểm', href: '#location' },
+  { icon: Gift, label: 'Quà', href: '#gifts' },
+  { icon: MessageCircleHeart, label: 'Lời chúc', href: '#wishes' },
 ];
 
 /**
