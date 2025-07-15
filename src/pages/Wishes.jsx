@@ -208,11 +208,11 @@ export default function Wishes() {
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <User className="w-4 h-4" />
-                                        <span>Nama Kamu</span>
+                                        <span>Tên của Bạn</span>
                                     </div>
                                     <input
                                         type="text"
-                                        placeholder="Masukan nama kamu..."
+                                        placeholder="Nhập tên của bạn..."
                                         className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
                                         required
                                     />
@@ -225,7 +225,7 @@ export default function Wishes() {
                                 >
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <Calendar className="w-4 h-4" />
-                                        <span>Apakah kamu hadir?</span>
+                                        <span>Bạn có tới dự tiệc cùng tụi mình không?</span>
                                     </div>
 
                                     {/* Custom Select Button */}
@@ -237,7 +237,7 @@ export default function Wishes() {
                                         <span className={attendance ? 'text-gray-700' : 'text-gray-400'}>
                                             {attendance ?
                                                 options.find(opt => opt.value === attendance)?.label
-                                                : 'Pilih kehadiran...'}
+                                                : 'Chọn sự hiện diện...'}
                                         </span>
                                         <ChevronDown
                                             className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''
@@ -280,10 +280,10 @@ export default function Wishes() {
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <MessageCircle className="w-4 h-4" />
-                                        <span>Harapan kamu</span>
+                                        <span>Lời chúc từ bạn tới tụi mình</span>
                                     </div>
                                     <textarea
-                                        placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
+                                        placeholder="Lời chúc từ bạn tới Tụi mình ..."
                                         className="w-full h-32 p-4 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 resize-none transition-all duration-200"
                                         required
                                     />
@@ -292,7 +292,7 @@ export default function Wishes() {
                             <div className="flex items-center justify-between mt-4">
                                 <div className="flex items-center space-x-2 text-gray-500">
                                     <Smile className="w-5 h-5" />
-                                    <span className="text-sm">Berikan Doa Anda</span>
+                                    <span className="text-sm">Mến chúc và cảm ơn tất cả mọi người.</span>
                                 </div>
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
@@ -303,7 +303,7 @@ export default function Wishes() {
                                             : 'bg-rose-500 hover:bg-rose-600'}`}
                                 >
                                     <Send className="w-4 h-4" />
-                                    <span>{isSubmitting ? 'Sedang Mengirim...' : 'Kirimkan Doa'}</span>
+                                    <span>{isSubmitting ? 'Đang gửi...' : 'Gửi'}</span>
                                 </motion.button>
                             </div>
                         </div>
