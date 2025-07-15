@@ -38,19 +38,15 @@ export default function Wishes() {
 
         setIsSubmitting(true);
 
-        const newWishObj = {
-            name: guestName,
-            attendance,
-            wish: newWish,
-        };
+        const formData = new FormData();
+        formData.append("name", guestName);
+        formData.append("attendance", attendance);
+        formData.append("wish", newWish);
 
         try {
             await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newWishObj)
+                body: formData
             });
 
             setWishes(prev => [
