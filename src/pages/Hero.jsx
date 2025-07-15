@@ -31,10 +31,10 @@ export default function Hero() {
 
             if (difference > 0) {
                 timeLeft = {
-                    hari: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                    jam: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                    menit: Math.floor((difference / 1000 / 60) % 60),
-                    detik: Math.floor((difference / 1000) % 60),
+                    Ngày: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    giờ: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    phút: Math.floor((difference / 1000 / 60) % 60),
+                    giây: Math.floor((difference / 1000) % 60),
                 };
             }
             return timeLeft;
