@@ -45,7 +45,7 @@ export default function Wishes() {
         };
 
         try {
-            await fetch("https://script.google.com/macros/s/AKfycbyEPaz1td-btYbitjc630HtdmkxG_KM3Y9jcg0CM5CFcG0o2rmTbssc_91zbi7pIOcI/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbwk8BHdKeIceOm0-e6TC26EKEoKSz2U7taDWvSFl6f2s136ETTYvSIezCIy_YejlMjI/exec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
