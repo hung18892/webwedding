@@ -1,8 +1,8 @@
 /**
- * Formats a date string into Indonesian format
+ * Formats a date string into VietNam format
  * @param {string} isoString - The ISO date string to format
  * @param {('full'|'short'|'time')} [format='full'] - The format type to use
- * @returns {string} The formatted date string in Indonesian
+ * @returns {string} The formatted date string in VietNam
  * 
  * @example
  * // returns "Senin, 1 Januari 2024"
@@ -23,63 +23,63 @@ export const formatEventDate = (isoString, format = 'full') => {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-            timeZone: 'Asia/Jakarta'
+            timeZone: 'Asia/Ho_Chi_Minh'
         },
         short: {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
-            timeZone: 'Asia/Jakarta'
+            timeZone: 'Asia/Ho_Chi_Minh'
         },
         time: {
             hour: '2-digit',
             minute: '2-digit',
             hour12: false,
-            timeZone: 'Asia/Jakarta'
+            timeZone: 'Asia/Ho_Chi_Minh'
         }
     };
 
-    // Indonesian month names mapping
-    const monthsIndonesian = {
-        'January': 'Januari',
-        'February': 'Februari',
-        'March': 'Maret',
-        'April': 'April',
-        'May': 'Mei',
-        'June': 'Juni',
-        'July': 'Juli',
-        'August': 'Agustus',
-        'September': 'September',
-        'October': 'Oktober',
-        'November': 'November',
-        'December': 'Desember'
+    // VietNam month names mapping
+    const monthsVietNam = {
+        'January': 'Tháng 1',
+        'February': 'Tháng 2',
+        'March': 'Tháng 3',
+        'April': 'Tháng 4',
+        'May': 'Tháng 5',
+        'June': 'Tháng 6',
+        'July': 'Tháng 7',
+        'August': 'Tháng 8',
+        'September': 'Tháng 9',
+        'October': 'Tháng 10',
+        'November': 'Tháng 11',
+        'December': 'Tháng 12'
     };
 
-    // Indonesian day names mapping
-    const daysIndonesian = {
-        'Sunday': 'Minggu',
-        'Monday': 'Senin',
-        'Tuesday': 'Selasa',
-        'Wednesday': 'Rabu',
-        'Thursday': 'Kamis',
-        'Friday': 'Jumat',
-        'Saturday': 'Sabtu'
+    // VietNam day names mapping
+    const daysVietNam = {
+        'Sunday': 'Chủ nhật',
+        'Monday': 'Thứ 2',
+        'Tuesday': 'Thứ 3',
+        'Wednesday': 'Thứ 4',
+        'Thursday': 'Thứ 5',
+        'Friday': 'Thứ 6',
+        'Saturday': 'Thứ 7'
     };
 
-    let formatted = date.toLocaleDateString('en-US', formats[format]);
+    let formatted = date.toLocaleDateString('vi-VN', formats[format]);
 
     // Handle time format separately
     if (format === 'time') {
-        return date.toLocaleTimeString('en-US', formats[format]);
+        return date.toLocaleTimeString('vi-VN', formats[format]);
     }
 
-    // Replace English month and day names with Indonesian ones
-    Object.keys(monthsIndonesian).forEach(english => {
-        formatted = formatted.replace(english, monthsIndonesian[english]);
+    // Replace English month and day names with VietNam ones
+    Object.keys(monthsVietNam).forEach(english => {
+        formatted = formatted.replace(english, monthsVietNam[english]);
     });
 
-    Object.keys(daysIndonesian).forEach(english => {
-        formatted = formatted.replace(english, daysIndonesian[english]);
+    Object.keys(daysVietNam).forEach(english => {
+        formatted = formatted.replace(english, daysVietNam[english]);
     });
 
     // Format adjustment for full date
