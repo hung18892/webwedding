@@ -104,7 +104,7 @@ export default function Wishes() {
                         transition={{ delay: 0.2 }}
                         className="inline-block text-rose-500 font-medium"
                     >
-                        Kirimkan Doa dan Harapan Terbaik Anda
+                        Tụi mình rất mong nhận được sự yêu thương và lời chúc tốt lành từ mọi người ^^ 😊
                     </motion.span>
 
                     <motion.h2
@@ -113,7 +113,7 @@ export default function Wishes() {
                         transition={{ delay: 0.3 }}
                         className="text-4xl md:text-5xl font-serif text-gray-800"
                     >
-                        Pesan dan Doa
+                        Thông điệp vui vẻ và đầy yêu thương 😊
                     </motion.h2>
 
                     {/* Decorative Divider */}
