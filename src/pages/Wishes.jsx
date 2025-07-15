@@ -44,7 +44,7 @@ export default function Wishes() {
               wish: newWish
         });
 
-        await fetch("https://script.google.com/macros/s/AKfycbx.../exec", {
+        await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
           method: "POST",
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
