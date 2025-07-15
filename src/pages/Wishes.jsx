@@ -38,16 +38,20 @@ export default function Wishes() {
 
   setIsSubmitting(true);
 
-  const formData = new FormData();
-  formData.append("name", guestName);
-  formData.append("attendance", attendance);
-  formData.append("wish", newWish);
+ const formBody = new URLSearchParams({
+  name: guestName,
+  attendance,
+  wish: newWish
+});
 
-  try {
-    await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
-      method: "POST",
-      body: formData,
-    });
+await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: formBody.toString()
+});
+
 
     setWishes(prev => [
       {
