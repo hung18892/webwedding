@@ -24,9 +24,9 @@ export default function Wishes() {
     const [isOpen, setIsOpen] = useState(false);
 
     const options = [
-        { value: 'ATTENDING', label: 'Ya, saya akan hadir' },
-        { value: 'NOT_ATTENDING', label: 'Tidak, saya tidak bisa hadir' },
-        { value: 'MAYBE', label: 'Mungkin, saya akan konfirmasi nanti' }
+        { value: 'ATTENDING', label: 'Vâng, tôi sẽ đến!' },
+        { value: 'NOT_ATTENDING', label: 'Không, tôi không thể đến.' },
+        { value: 'MAYBE', label: 'Có thể, tôi sẽ xác nhận sau.' }
     ];
     // Example wishes - replace with your actual data
     const [wishes, setWishes] = useState([
