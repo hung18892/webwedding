@@ -38,19 +38,17 @@ export default function Wishes() {
 
         setIsSubmitting(true);
 
-        const formBody = new URLSearchParams({
-            name: guestName,
-            attendance,
-            wish: newWish
-        });
-
         try {
-            await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
+            await fetch("/api/wish", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": "application/json"
                 },
-                body: formBody.toString()
+                body: JSON.stringify({
+                    name: guestName,
+                    attendance,
+                    wish: newWish
+                })
             });
 
             setWishes(prev => [
