@@ -33,46 +33,44 @@ export default function Wishes() {
     const [wishes, setWishes] = useState([]);
 
     const handleSubmitWish = async (e) => {
-        e.preventDefault();
-        if (!newWish.trim() || !guestName.trim()) return;
+  e.preventDefault();
+  if (!newWish.trim() || !guestName.trim()) return;
 
-        setIsSubmitting(true);
+  setIsSubmitting(true);
 
-       const formBody = new URLSearchParams({
-              name: guestName,
-              attendance,
-              wish: newWish
-        });
+  const formData = new FormData();
+  formData.append("name", guestName);
+  formData.append("attendance", attendance);
+  formData.append("wish", newWish);
 
-        await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: formBody.toString()
-        });
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec", {
+      method: "POST",
+      body: formData,
+    });
 
-            setWishes(prev => [
-                {
-                    id: Date.now(),
-                    name: guestName,
-                    message: newWish,
-                    timestamp: new Date().toISOString(),
-                    attending: attendance
-                },
-                ...prev
-            ]);
-            setGuestName('');
-            setNewWish('');
-            setAttendance('');
-            setShowConfetti(true);
-            setTimeout(() => setShowConfetti(false), 3000);
-        } catch (err) {
-            console.error("Failed to send wish:", err);
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+    setWishes(prev => [
+      {
+        id: Date.now(),
+        name: guestName,
+        message: newWish,
+        timestamp: new Date().toISOString(),
+        attending: attendance,
+      },
+      ...prev
+    ]);
+    setGuestName('');
+    setNewWish('');
+    setAttendance('');
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 3000);
+  } catch (err) {
+    console.error("Failed to send wish:", err);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
     const getAttendanceIcon = (status) => {
         switch (status.toLowerCase()) {
