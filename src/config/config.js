@@ -35,8 +35,8 @@ const config = {
       }
     ],
     audio: {
-      src: "/audio/fulfilling-humming.mp3", // or /audio/nature-sound.mp3
-      title: "Fulfilling Humming", // or Nature Sound
+      src: "/audio/motdoiemoisaunay.mp3", // or /audio/nature-sound.mp3
+      title: "Em ơi sau này & Một đời", // or Nature Sound
       autoplay: true,
       loop: true
     },
