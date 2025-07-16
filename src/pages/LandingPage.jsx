@@ -11,13 +11,25 @@ const LandingPage = ({ onOpenInvitation }) => (
     exit={{ opacity: 0 }}
     className="min-h-screen relative overflow-hidden"
   >
-    {/* Decorative Background */}
-    <div className="absolute inset-0 bg-gradient-to-b from-white via-rose-50/30 to-white" />
-    <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-rose-100/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-    <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-pink-100/20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+    {/* ========== BACKGROUND ========== */}
+    {/* Ảnh nền với blur */}
+    <div
+      className="fixed inset-0 bg-[url('/images/image1.jpg')] bg-cover bg-center bg-no-repeat blur-sm"
+      style={{
+        transform: 'translateZ(0)', // Tối ưu hiệu ứng
+        zIndex: -20 // Đặt sau các lớp khác
+      }}
+    />
 
-    {/* Main Content */}
-    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
+    {/* Lớp phủ tối (darken) */}
+    <div className="fixed inset-0 bg-black/40 z-10" /> {/* opacity 40% */}
+
+    {/* Các hiệu ứng decorative (giữ nguyên từ code gốc) */}
+    <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-rose-100/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 z-0" />
+    <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-pink-100/20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 z-0" />
+
+    {/* ========== MAIN CONTENT ========== */}
+    <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-4">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -25,7 +37,7 @@ const LandingPage = ({ onOpenInvitation }) => (
         className="w-full max-w-md"
       >
         {/* Card Container */}
-        <div className="backdrop-blur-sm bg-white/50 p-6 sm:p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl">
+        <div className="backdrop-blur-sm bg-white/70 p-6 sm:p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl">
           {/* Top Decorative Line */}
           <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
             <div className="h-px w-12 sm:w-16 bg-rose-200/50" />
