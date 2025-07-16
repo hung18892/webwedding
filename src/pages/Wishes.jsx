@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
     ChevronDown,
     Send,
@@ -19,7 +19,6 @@ export default function Wishes() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [attendance, setAttendance] = useState('');
     const [isOpen, setIsOpen] = useState(false);
-    const [hasAnimated, setHasAnimated] = useState(false);
 
     const options = [
         { value: 'Vâng, tôi sẽ đến!', label: 'Vâng, tôi sẽ đến!' },
@@ -30,7 +29,6 @@ export default function Wishes() {
     const [wishes, setWishes] = useState([]);
 
     useEffect(() => {
-        setHasAnimated(true);
         if (window.location.hash === '#wishes' && wishesRef.current) {
             wishesRef.current.scrollIntoView({ 
                 behavior: 'smooth',
@@ -102,40 +100,16 @@ export default function Wishes() {
             ref={wishesRef} 
             className="py-8 px-4 md:py-12 max-w-2xl mx-auto"
         >
-            {/* Header Section với animation */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8 }}
-                className="text-center mb-8"
-            >
-                <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.2 }}
-                    className="inline-block text-rose-500 font-medium"
-                >
-                    Lời Chúc
-                </motion.span>
-                
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.3 }}
-                    className="text-3xl font-bold text-gray-800 mt-2"
-                >
-                    Gửi lời chúc của bạn
-                </motion.h2>
-                
-                <motion.div
-                    initial={{ scale: 0 }}
-                    animate={hasAnimated ? { scale: 1 } : {}}
-                    transition={{ delay: 0.4 }}
-                    className="flex justify-center mt-4"
-                >
-                    <Heart className="w-6 h-6 text-rose-400" />
-                </motion.div>
-            </motion.div>
+            {/* Tiêu đề mới - Thiết kế giống phần quà tặng */}
+            <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center bg-rose-100 rounded-full p-3 mb-4">
+                    <Heart className="w-8 h-8 text-rose-600" />
+                </div>
+                <h2 className="text-3xl font-bold text-rose-600 mb-2">Lời Chúc</h2>
+                <p className="text-gray-600 max-w-md mx-auto">
+                    Gửi những lời chúc tốt đẹp nhất đến với chúng mình nhé!
+                </p>
+            </div>
 
             <form onSubmit={handleSubmitWish} className="space-y-4">
                 {/* Input tên */}
