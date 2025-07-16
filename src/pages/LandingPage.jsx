@@ -33,7 +33,7 @@ const LandingPage = ({ onOpenInvitation }) => (
     <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-4">
       <motion.div
         initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: 0.6 }}
         transition={{ duration: 0.8 }}
         className="w-full max-w-md"
       >
