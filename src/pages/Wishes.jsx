@@ -99,7 +99,9 @@ export default function Wishes() {
             ref={wishesRef} 
             className="py-8 px-4 md:py-12 max-w-2xl mx-auto"
         >
+            <div class="text-center space-y-4 mb-16" style="opacity: 1; transform: none;"><h2 class="text-4xl md:text-5xl font-serif text-gray-800" style="opacity: 1; transform: none;">Lời Chúc</h2><div class="flex items-center justify-center gap-4 pt-4" style="transform: none;"><div class="h-[1px] w-12 bg-rose-200"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-heart h-[18px] w-[18px] sm:h-5 sm:w-5 mb-0.5 sm:mb-1 transition-colors duration-200 stroke-rose-500"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7"></path></svg><div class="h-[1px] w-12 bg-rose-200"></div></div></div>
             <form onSubmit={handleSubmitWish} className="space-y-4">
+                
                 {/* Input tên */}
                 <div className="px-2">
                     <input
