@@ -1,7 +1,7 @@
 // Nanti convert ke Bahasa Indonesia
 const config = {
   data: {
-    title: "Wedding Hùng & Thảo", // title index
+    title: Hùng ❤️ Thảo - 20.01.2026", // title index
     description:
       "We will get married and invite you to celebrate this special moment with us.", // Des mô tả Chúng tôi sẽ kết hôn và mời bạn tham gia cùng chúng tôi để ăn mừng khoảnh khắc đặc biệt này.
     groomName: "Hùng",
