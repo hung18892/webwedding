@@ -152,6 +152,17 @@ export default function Wishes() {
                         {/* Arabic Dua */}
                        
                     </motion.div>
+                     <motion.div
+                        initial={{ scale: 0 }}
+                        animate={hasAnimated ? { scale: 1 } : {}}
+                        transition={{ delay: 0.6 }}
+                        className="flex items-center justify-center gap-3 pt-4"
+                    >
+                        <div className="h-px w-8 bg-rose-200/50" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-300" />
+                        <div className="h-px w-8 bg-rose-200/50" />
+                    </motion.div>
+                      </motion.div>
  {/*end header*/}
                     
             <form onSubmit={handleSubmitWish} className="space-y-4">
