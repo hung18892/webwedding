@@ -73,18 +73,18 @@ export default function Gifts() {
                     >
                         {/* Arabic InsyaAllah */}
                         <p className="font-arabic text-xl text-gray-800">
-                            Nếu Chúa muốn
+                            Lời cảm ơn của chúng mình
                         </p>
 
                         {/* Main Message */}
                         <p className="text-gray-600 leading-relaxed">
-                            Note ghi chú: "Chúng tôi sẽ chuyển tất cả các món quà đã nhận cho một số nhà thờ và tổ chức cần thiết."
+                Chúng mình cảm ơn món quà cưới siêu dễ thương mà mọi người đã gửi!
                         </p>
 
                         {/* Arabic Dua */}
                         <div className="space-y-2">
                             <p className="font-arabic text-lg text-gray-800">
-                                Cảm ơn Allah đã ban phước cho các bạn và chúc các bạn mọi điều tốt đẹp.
+                                Tình cảm của mọi người không những làm tụi mình ấm lòng mà còn hơi... choáng vì quá bất ngờ 🥰. Trân quý vô cùng!
                             </p>
                             <p className="text-gray-600 italic text-sm">
                                 Cảm ơn các bạn.
