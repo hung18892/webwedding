@@ -8,7 +8,16 @@ import {
     XCircle,
     HelpCircle,
 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
+export default function Gifts() {
+    const [copiedAccount, setCopiedAccount] = useState(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
+    
+    // Set animation to run once on component mount
+    useEffect(() => {
+        setHasAnimated(true);
+    }, []);
 export default function Wishes() {
     const wishesRef = useRef(null);
     const [showConfetti, setShowConfetti] = useState(false);
