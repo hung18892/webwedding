@@ -1,31 +1,22 @@
-// pages/api/wish.js
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  console.log('Received data:', req.body); // Debug log
-
   try {
+    // Gửi dữ liệu dưới dạng JSON thay vì x-www-form-urlencoded
     const response = await fetch(
-      'https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec', // Dán URL deployment mới vào đây
+      'https://script.google.com/macros/s/AKfycbxma2n1fJH-nwbA4ScYDDPlLRncnCeA6RgPGUtH0wlaHkXYMcWEbQpGMjgMB6RY5vfb/exec', // Thay URL deployment mới
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          name: req.body.name,
-          attendance: req.body.attendance,
-          wish: req.body.wish
-        }).toString()
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(req.body) // Gửi nguyên bộ dữ liệu dạng JSON
       }
     );
 
-    const result = await response.text();
-    console.log('Google Sheets response:', result); // Debug log
+    const result = await response.json();
+    return res.status(200).json(result);
     
-    return res.status(200).json({ message: 'Success', data: result });
   } catch (err) {
     console.error('API Error:', err);
     return res.status(500).json({ message: err.message });
