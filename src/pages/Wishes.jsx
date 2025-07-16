@@ -99,6 +99,14 @@ export default function Wishes() {
             ref={wishesRef} 
             className="py-8 px-4 md:py-12 max-w-2xl mx-auto"
         >
+            <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: 0.2 }}
+                        className="inline-block text-rose-500 font-medium"
+                    >
+                        Lời Chúc
+                    </motion.span>
             <form onSubmit={handleSubmitWish} className="space-y-4">
                 {/* Input tên */}
                 <div className="px-2">
