@@ -1,26 +1,32 @@
 import EventCards from '@/components/EventsCard';
 import config from '@/config/config';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export default function Events() {
     const { agenda } = config.data;
     const sectionRef = useRef(null);
-    
-    // Scroll controls
+    const [currentImage, setCurrentImage] = useState(0);
+    const images = [
+        '/images/image2.jpg',
+        '/images/image3.jpg'
+    ];
+
+    // Tự động chuyển ảnh mỗi 3 giây
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    // Hiệu ứng scroll parallax nhẹ
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
     });
-
-    // Image2: Left to center with fade
-    const image2X = useTransform(scrollYProgress, [0, 1], ["-30%", "50%"]);
-    const image2Opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
-    
-    // Image3: Right to center with fade
-    const image3X = useTransform(scrollYProgress, [0, 1], ["130%", "50%"]);
-    const image3Opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
     return (
         <section 
@@ -28,41 +34,49 @@ export default function Events() {
             ref={sectionRef}
             className="relative min-h-screen overflow-hidden bg-white"
         >
-            {/* ========== PARALLAX BACKGROUNDS ========== */}
-            {/* Image 2 - Left to center */}
-            <motion.div
-                style={{
-                    x: image2X,
-                    opacity: image2Opacity,
-                    backgroundImage: "url('/images/image2.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"
-                }}
-                className="absolute inset-0 z-0"
-            />
-            
-            {/* Image 3 - Right to center */}
-            <motion.div
-                style={{
-                    x: image3X,
-                    opacity: image3Opacity,
-                    backgroundImage: "url('/images/image3.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"
-                }}
-                className="absolute inset-0 z-0"
-            />
-            
+            {/* ========== SLIDING BACKGROUNDS ========== */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={`bg-${currentImage}`}
+                    style={{ opacity: bgOpacity }}
+                    className="absolute inset-0 bg-cover bg-center z-0"
+                    initial={{ 
+                        x: currentImage === 0 ? '-100%' : '100%',
+                        opacity: 0 
+                    }}
+                    animate={{ 
+                        x: '0%', 
+                        opacity: 1,
+                        transition: { 
+                            duration: 1.2,
+                            ease: [0.32, 0.72, 0, 1] 
+                        }
+                    }}
+                    exit={{
+                        x: currentImage === 0 ? '100%' : '-100%',
+                        opacity: 0,
+                        transition: { 
+                            duration: 1.2,
+                            ease: [0.32, 0.72, 0, 1] 
+                        }
+                    }}
+                    style={{ 
+                        backgroundImage: `url(${images[currentImage]})`,
+                        backgroundSize: 'cover'
+                    }}
+                />
+            </AnimatePresence>
+
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/10 z-1" />
+            <div className="absolute inset-0 bg-black/20 z-1" />
 
             {/* ========== MAIN CONTENT ========== */}
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5 }}
-                className="relative z-10 container mx-auto px-4 py-16 sm:py-20"
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 container mx-auto px-4 py-20"
             >
                 {/* Header content... */}
                 
