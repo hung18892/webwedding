@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     ChevronDown,
     Send,
