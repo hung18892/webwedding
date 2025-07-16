@@ -99,74 +99,7 @@ export default function Wishes() {
             ref={wishesRef} 
             className="py-8 px-4 md:py-12 max-w-2xl mx-auto"
         >
-            {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8 }}
-                    className="text-center space-y-4 mb-16"
-                >
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.2 }}
-                        className="inline-block text-rose-500 font-medium"
-                    >
-                        Quà cưới
-                    </motion.span>
-
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-serif text-gray-800"
-                    >
-                        Lời chúc
-                    </motion.h2>
-
-                    {/* Decorative Divider */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        animate={hasAnimated ? { scale: 1 } : {}}
-                        transition={{ delay: 0.4 }}
-                        className="flex items-center justify-center gap-4 pt-4"
-                    >
-                        <div className="h-[1px] w-12 bg-rose-200" />
-                        <Gift className="w-5 h-5 text-rose-400" />
-                        <div className="h-[1px] w-12 bg-rose-200" />
-                    </motion.div>
-
-                    {/* Message Container */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={hasAnimated ? { opacity: 1 } : {}}
-                        transition={{ delay: 0.5 }}
-                        className="space-y-4 max-w-md mx-auto"
-                    >
-                        {/* Arabic InsyaAllah */}
-                       
-
-                        {/* Main Message */}
-                      
-
-                        {/* Arabic Dua */}
-                       
-                    </motion.div>
-                     <motion.div
-                        initial={{ scale: 0 }}
-                        animate={hasAnimated ? { scale: 1 } : {}}
-                        transition={{ delay: 0.6 }}
-                        className="flex items-center justify-center gap-3 pt-4"
-                    >
-                        <div className="h-px w-8 bg-rose-200/50" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-rose-300" />
-                        <div className="h-px w-8 bg-rose-200/50" />
-                    </motion.div>
-                      </motion.div>
- {/*end header*/}
-                    
             <form onSubmit={handleSubmitWish} className="space-y-4">
-                
                 {/* Input tên */}
                 <div className="px-2">
                     <input
