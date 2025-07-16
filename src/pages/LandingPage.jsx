@@ -14,7 +14,7 @@ const LandingPage = ({ onOpenInvitation }) => (
     {/* ========== BACKGROUND ========== */}
     {/* Ảnh nền sắc nét (không blur) */}
     <div
-      className="fixed inset-0 bg-[url('/images/image1.png')] bg-cover bg-center bg-no-repeat"
+      className="fixed inset-0 bg-[url('/images/image1.jpg')] bg-cover bg-center bg-no-repeat"
       style={{
         transform: 'translateZ(0)',
         zIndex: -20,
