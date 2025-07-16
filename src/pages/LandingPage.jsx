@@ -12,19 +12,20 @@ const LandingPage = ({ onOpenInvitation }) => (
     className="min-h-screen relative overflow-hidden"
   >
     {/* ========== BACKGROUND ========== */}
-    {/* Ảnh nền với blur */}
+    {/* Ảnh nền sắc nét (không blur) */}
     <div
-      className="fixed inset-0 bg-[url('/images/image1.jpg')] bg-cover bg-center bg-no-repeat blur-sm"
+      className="fixed inset-0 bg-[url('/images/image1.png')] bg-cover bg-center bg-no-repeat"
       style={{
-        transform: 'translateZ(0)', // Tối ưu hiệu ứng
-        zIndex: -20 // Đặt sau các lớp khác
+        transform: 'translateZ(0)',
+        zIndex: -20,
+        imageRendering: 'crisp-edges'
       }}
     />
 
-    {/* Lớp phủ tối (darken) */}
-    <div className="fixed inset-0 bg-black/40 z-10" /> {/* opacity 40% */}
+    {/* Lớp phủ tối nhẹ (25% opacity) */}
+    <div className="fixed inset-0 bg-black/25 z-10" />
 
-    {/* Các hiệu ứng decorative (giữ nguyên từ code gốc) */}
+    {/* Các decorative elements (giữ nguyên từ bản gốc) */}
     <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-rose-100/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 z-0" />
     <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-pink-100/20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 z-0" />
 
