@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react';
 export default function Gifts() {
   const [copiedAccount, setCopiedAccount] = useState(null);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [showImage, setShowImage] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
   
   useEffect(() => {
     setHasAnimated(true);
@@ -25,19 +25,20 @@ export default function Gifts() {
     setTimeout(() => setCopiedAccount(null), 2000);
   };
 
-  const handleWalletClick = (e) => {
-    e.stopPropagation(); // Ngăn sự kiện nổi bọt
-    setShowImage(true);
+  const handleWalletClick = (bankIndex, e) => {
+    e.stopPropagation();
+    // Hiển thị ảnh tương ứng với wallet
+    setCurrentImage(bankIndex === 0 ? '/images/image5.jpg' : '/images/image6.jpg');
   };
 
   const closeImageModal = () => {
-    setShowImage(false);
+    setCurrentImage(null);
   };
 
   return (
     <>
-      {/* Modal hiển thị ảnh */}
-      {showImage && (
+      {/* Modal hiển thị ảnh QR */}
+      {currentImage && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -58,7 +59,7 @@ export default function Gifts() {
               <X className="w-5 h-5 text-gray-700" />
             </button>
             <img 
-              src="/images/image6.jpg" 
+              src={currentImage} 
               alt="QR Code" 
               className="w-full h-auto object-contain"
             />
@@ -72,17 +73,44 @@ export default function Gifts() {
       {/* Phần nội dung chính */}
       <section id="gifts" className="min-h-screen relative overflow-hidden">
         <div className="container mx-auto px-4 py-20 relative z-10">
-          {/* Section Header */}
+          {/* Section Header (giữ nguyên) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="text-center space-y-4 mb-16"
           >
-            {/* ... (giữ nguyên phần header) ... */}
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="inline-block text-rose-500 font-medium"
+            >
+              Quà cưới
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="text-4xl md:text-5xl font-serif text-gray-800"
+            >
+              Tặng quà
+            </motion.h2>
+
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={hasAnimated ? { scale: 1 } : {}}
+              transition={{ delay: 0.4 }}
+              className="flex items-center justify-center gap-4 pt-4"
+            >
+              <div className="h-[1px] w-12 bg-rose-200" />
+              <Gift className="w-5 h-5 text-rose-400" />
+              <div className="h-[1px] w-12 bg-rose-200" />
+            </motion.div>
           </motion.div>
 
-          {/* Bank Accounts Grid */}
+          {/* Danh sách tài khoản ngân hàng */}
           <div className="max-w-2xl mx-auto grid gap-6">
             {config.data.banks.map((account, index) => (
               <motion.div
@@ -107,8 +135,9 @@ export default function Gifts() {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={handleWalletClick}
+                      onClick={(e) => handleWalletClick(index, e)}
                       className="text-rose-400 hover:text-rose-500 transition-colors"
+                      aria-label={`Xem QR Code ${account.bank}`}
                     >
                       <Wallet className="w-5 h-5" />
                     </motion.button>
