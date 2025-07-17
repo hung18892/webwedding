@@ -28,7 +28,7 @@ export default function Gifts() {
   const handleWalletClick = (bankIndex, e) => {
     e.stopPropagation();
     // Hiển thị ảnh tương ứng với wallet
-    setCurrentImage(bankIndex === 0 ? '/images/image5.jpg' : '/images/image6.jpg');
+    setCurrentImage(bankIndex === 0 ? '/images/image6.jpg' : '/images/image7.jpg');
   };
 
   const closeImageModal = () => {
