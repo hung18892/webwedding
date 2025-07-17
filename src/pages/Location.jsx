@@ -1,19 +1,35 @@
 import config from "@/config/config";
-import { Clock, MapPin, CalendarCheck, ExternalLink } from 'lucide-react';
+import { Clock, MapPin, CalendarCheck, ExternalLink, Heart, Ring, Camera, GlassWater, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { formatEventDate } from "@/lib/formatEventDate";
 
 export default function Location() {
-  // Dữ liệu timeline
+  // Dữ liệu timeline với icon riêng cho từng sự kiện
   const timelineEvents = [
-    { time: "09:00", title: "Đón khách", icon: <Clock className="w-4 h-4" /> },
-    { time: "09:30", title: "Lễ Thành Hôn", icon: <Clock className="w-4 h-4" /> },
-    { time: "10:00", title: "Khai tiệc", icon: <Clock className="w-4 h-4" /> },
+    { 
+      time: "09:00", 
+      title: "Đón khách", 
+      icon: <Users className="w-4 h-4 text-rose-600" />,
+      color: "bg-blue-100 border-blue-200"
+    },
+    { 
+      time: "09:30", 
+      title: "Lễ Thành Hôn", 
+      icon: <Heart className="w-4 h-4 text-rose-600" fill="#e11d48" />,
+      color: "bg-rose-100 border-rose-200"
+    },
+    { 
+      time: "10:00", 
+      title: "Khai tiệc", 
+      icon: <GlassWater className="w-4 h-4 text-amber-600" />,
+      color: "bg-amber-100 border-amber-200"
+    },
     { 
       time: "11:30", 
       title: "Chụp ảnh cùng",
       subtitle: "Cô Dâu & Chú Rể",
-      icon: <Clock className="w-4 h-4" /> 
+      icon: <Camera className="w-4 h-4 text-purple-600" />,
+      color: "bg-purple-100 border-purple-200"
     }
   ];
 
@@ -61,7 +77,7 @@ export default function Location() {
           </motion.div>
         </motion.div>
 
-        {/* Grid Layout cho Desktop */}
+        {/* Grid Layout */}
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Cột 1: Bản đồ và Thông tin */}
           <div className="space-y-6">
@@ -117,7 +133,7 @@ export default function Location() {
             </motion.div>
           </div>
 
-          {/* Cột 2: Timeline - Phiên bản tối ưu mobile */}
+          {/* Cột 2: Timeline - Phiên bản mới với icon */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -129,7 +145,7 @@ export default function Location() {
             
             <div className="relative">
               {/* Đường timeline */}
-              <div className="absolute left-[22px] top-0 h-full w-0.5 bg-rose-200/50" />
+              <div className="absolute left-[26px] top-0 h-full w-0.5 bg-rose-200/30" />
               
               {timelineEvents.map((event, index) => (
                 <motion.div
@@ -138,19 +154,17 @@ export default function Location() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 pb-6 relative last:pb-0 pl-2"
+                  className="flex gap-4 pb-6 relative last:pb-0"
                 >
                   {/* Dot và Icon */}
-                  <div className="flex-shrink-0 relative">
-                    <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-rose-500/10 border-2 border-rose-400 flex items-center justify-center">
-                      {event.icon}
-                    </div>
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-full ${event.color} border-2 flex items-center justify-center`}>
+                    {event.icon}
                   </div>
                   
                   {/* Nội dung */}
-                  <div className="pt-1">
-                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
-                      <span className="text-lg font-semibold text-rose-600 whitespace-nowrap">
+                  <div className="pt-1 flex-1">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-semibold text-gray-800">
                         {event.time}
                       </span>
                       <span className="text-base font-medium text-gray-700">
@@ -158,34 +172,12 @@ export default function Location() {
                       </span>
                     </div>
                     {event.subtitle && (
-                      <p className="mt-1 text-sm text-gray-500 sm:pl-[3.5rem]">
+                      <p className="mt-1 text-sm text-gray-500">
                         {event.subtitle}
                       </p>
                     )}
                   </div>
                 </motion.div>
-              ))}
-            </div>
-
-            {/* Footer */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: timelineEvents.length * 0.1 + 0.3 }}
-              className="mt-8 text-center italic text-gray-400 text-sm"
-            >
-              Phát Nhạc
-            </motion.div>
-
-            {/* Navigation cho mobile */}
-            <div className="grid grid-cols-5 gap-2 mt-8 text-xs text-center">
-              {['Tin tức', 'Sự kiện', 'Địa điểm', 'Quà', 'Lời chúc'].map((item) => (
-                <button 
-                  key={item}
-                  className="py-2 px-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-rose-50 hover:text-rose-600 transition-colors"
-                >
-                  {item}
-                </button>
               ))}
             </div>
           </motion.div>
