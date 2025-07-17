@@ -4,7 +4,7 @@ import {
   Copy,
   Gift,
   CheckCircle,
-  Wallet,
+  QrCode,
   Building2,
   X
 } from 'lucide-react';
@@ -25,10 +25,10 @@ export default function Gifts() {
     setTimeout(() => setCopiedAccount(null), 2000);
   };
 
-  const handleWalletClick = (bankIndex, e) => {
+  const handleQrClick = (bankIndex, e) => {
     e.stopPropagation();
-    // Hiển thị ảnh tương ứng với wallet
-    setCurrentImage(bankIndex === 0 ? '/images/image6.jpg' : '/images/image7.jpg');
+    // Hiển thị ảnh tương ứng với ngân hàng
+    setCurrentImage(bankIndex === 0 ? '/images/image5.jpg' : '/images/image6.jpg');
   };
 
   const closeImageModal = () => {
@@ -61,9 +61,9 @@ export default function Gifts() {
             <img 
               src={currentImage} 
               alt="QR Code" 
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain p-4"
             />
-            <div className="p-4 text-center bg-gray-50">
+            <div className="p-4 text-center bg-gray-50 border-t">
               <p className="text-sm text-gray-600">Quét mã QR để chuyển khoản</p>
             </div>
           </motion.div>
@@ -71,9 +71,9 @@ export default function Gifts() {
       )}
 
       {/* Phần nội dung chính */}
-      <section id="gifts" className="min-h-screen relative overflow-hidden">
+      <section id="gifts" className="min-h-screen relative overflow-hidden bg-rose-50/10">
         <div className="container mx-auto px-4 py-20 relative z-10">
-          {/* Section Header (giữ nguyên) */}
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
@@ -120,11 +120,11 @@ export default function Gifts() {
                 transition={{ delay: 0.2 * index + 0.7 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-100/50 to-pink-100/50 rounded-2xl transform transition-transform group-hover:scale-105 duration-300" />
-                <div className="relative backdrop-blur-sm bg-white/80 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-100/30 to-pink-100/30 rounded-2xl transform transition-transform group-hover:scale-[1.02] duration-300" />
+                <div className="relative bg-white/90 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-white p-2 shadow-sm">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-white p-2 shadow-sm border border-rose-100">
                         <Building2 className="w-full h-full text-rose-500" />
                       </div>
                       <div>
@@ -135,31 +135,34 @@ export default function Gifts() {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={(e) => handleWalletClick(index, e)}
-                      className="text-rose-400 hover:text-rose-500 transition-colors"
+                      onClick={(e) => handleQrClick(index, e)}
+                      className="text-rose-500 hover:text-rose-600 transition-colors"
                       aria-label={`Xem QR Code ${account.bank}`}
                     >
-                      <Wallet className="w-5 h-5" />
+                      <QrCode className="w-6 h-6" />
                     </motion.button>
                   </div>
 
                   <div className="mt-4">
-                    <div className="flex items-center justify-between bg-gray-50/80 px-4 py-3 rounded-lg">
+                    <div className="flex items-center justify-between bg-rose-50/50 px-4 py-3 rounded-lg border border-rose-100">
                       <p className="font-mono text-gray-700">{account.accountNumber}</p>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => copyToClipboard(account.accountNumber, account.bank)}
-                        className="flex items-center space-x-1 text-rose-500 hover:text-rose-600"
+                        className="flex items-center gap-1 text-rose-600 hover:text-rose-700 text-sm font-medium"
                       >
                         {copiedAccount === account.bank ? (
-                          <CheckCircle className="w-4 h-4" />
+                          <>
+                            <CheckCircle className="w-4 h-4" />
+                            <span>Đã copy</span>
+                          </>
                         ) : (
-                          <Copy className="w-4 h-4" />
+                          <>
+                            <Copy className="w-4 h-4" />
+                            <span>Sao chép</span>
+                          </>
                         )}
-                        <span className="text-sm">
-                          {copiedAccount === account.bank ? 'Copied!' : 'Copy'}
-                        </span>
                       </motion.button>
                     </div>
                   </div>
