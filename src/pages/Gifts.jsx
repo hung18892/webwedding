@@ -28,7 +28,7 @@ export default function Gifts() {
   const handleQrClick = (bankIndex, e) => {
     e.stopPropagation();
     // Hiển thị ảnh tương ứng với ngân hàng
-    setCurrentImage(bankIndex === 0 ? '/images/image5.jpg' : '/images/image6.jpg');
+    setCurrentImage(bankIndex === 0 ? '/images/image6.jpg' : '/images/image7.jpg');
   };
 
   const closeImageModal = () => {
