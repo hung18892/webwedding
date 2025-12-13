@@ -7,19 +7,19 @@ export default function Location() {
   // Dữ liệu timeline với icon riêng cho từng sự kiện
   const timelineEvents = [
     { 
-      time: "09:00", 
-      title: "Đón khách", 
+      time: "07:20", 
+      title: "Làm lễ nhà gái", 
       icon: <Users className="w-4 h-4 text-rose-600" />,
       color: "bg-blue-100 border-blue-200"
     },
     { 
-      time: "09:30", 
+      time: "08:20", 
       title: "Lễ Thành Hôn", 
       icon: <Heart className="w-4 h-4 text-rose-600" fill="#e11d48" />,
       color: "bg-rose-100 border-rose-200"
     },
     { 
-      time: "10:00", 
+      time: "11:15", 
       title: "Khai tiệc", 
       icon: <GlassWater className="w-4 h-4 text-amber-600" />,
       color: "bg-amber-100 border-amber-200"
