@@ -9,10 +9,15 @@ export default function Events() {
     const sectionRef = useRef(null);
     const [currentImage, setCurrentImage] = useState(0);
     const images = [
+        '/images/image1.jpg',
         '/images/image2.jpg',
         '/images/image3.jpg',
         '/images/image4.jpg',
-        '/images/image5.jpg'
+        '/images/image5.jpg',
+        '/images/image6.jpg',
+        '/images/image7.jpg',
+        '/images/image8.jpg',
+        '/images/image9.jpg'
     ];
 
     // Tự động chuyển ảnh mỗi 3 giây
