@@ -8,7 +8,7 @@ export default function Location() {
   const timelineEvents = [
     { 
       time: "07:20", 
-      title: "Làm lễ Vu Quy", 
+      title: "Lễ Vu Quy", 
       icon: <Users className="w-4 h-4 text-rose-600" />,
       color: "bg-blue-100 border-blue-200"
     },
