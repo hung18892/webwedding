@@ -196,9 +196,9 @@ export default function Hero() {
                                     className="space-y-2"
                                 >
                                     <p className="text-gray-500 font-serif italic text-sm">
-                                        Kính gửi
+                                        Mến gửi
                                     </p>
-                                    <p className="text-gray-600 font-medium text-sm">
+                                    <p className="text-gray-600 font-serif italic text-sm">
                                         Tất cả mọi người
                                     </p>
                                     <p className="text-rose-500 font-semibold text-lg">
