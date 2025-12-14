@@ -8,7 +8,7 @@ export default function Location() {
   const timelineEvents = [
     { 
       time: "07:20", 
-      title: "Làm lễ nhà gái", 
+      title: "Làm lễ Vu Quy", 
       icon: <Users className="w-4 h-4 text-rose-600" />,
       color: "bg-blue-100 border-blue-200"
     },
@@ -19,13 +19,13 @@ export default function Location() {
       color: "bg-rose-100 border-rose-200"
     },
     { 
-      time: "11:15", 
+      time: "11:30", 
       title: "Khai tiệc", 
       icon: <GlassWater className="w-4 h-4 text-amber-600" />,
       color: "bg-amber-100 border-amber-200"
     },
     { 
-      time: "11:30", 
+      time: "13:00", 
       title: "Chụp ảnh cùng",
       subtitle: "Cô Dâu & Chú Rể",
       icon: <Camera className="w-4 h-4 text-purple-600" />,
