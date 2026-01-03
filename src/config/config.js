@@ -44,12 +44,12 @@ const config = {
       {
         bank: "BIDV",
         accountNumber: "5510730817",
-        accountName: "Hùng",
+        accountName: "Chú Rể",
       },
       {
         bank: "Vietin Bank ",
         accountNumber: "100868281045",
-        accountName: "Thảo",
+        accountName: "Cô Dâu",
       }
     ]
   }
