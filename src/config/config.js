@@ -42,14 +42,14 @@ const config = {
     },
     banks: [
       {
-        bank: "Bank",
-        accountNumber: "1234567890",
-        accountName: "XXXXX",
+        bank: "BIDV",
+        accountNumber: "5510730817",
+        accountName: "Hùng",
       },
       {
-        bank: "Bank ",
-        accountNumber: "0987654321",
-        accountName: "YYYYYY",
+        bank: "Vietin Bank ",
+        accountNumber: "100868281045",
+        accountName: "Thảo",
       }
     ]
   }
